@@ -12,15 +12,16 @@ class Task:
         self.description = description
         self.due_date = due_date
         self.status = status
-        
+
     def __str__(self):
-        """String representation of task for display """
-        return (f"Title: {self.title}\n" 
-                f"Description: {self.description}\n" 
-                f"Due_date: {self.due_date}\n" 
-                f"Status: {self.status}\n"
-                "-"* 30)
-        
+        """Clean string representation of a task (no duplicates)"""
+        return (
+            f"Title: {self.title}\n"
+            f"Description: {self.description}\n"
+            f"Due_date: {self.due_date}\n"
+            f"Status: {self.status}\n"
+            "-" * 1  
+        )        
 class TaskManager:
     """
     Manages CRUD operations for tasks using in-memory list storage.
