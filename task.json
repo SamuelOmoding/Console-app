@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Updates on project saving and storage of files in json",
+    "description": "JSON storage option",
+    "due_date": "2025-04-06",
+    "status": "In Progress"
+  },
+  {
+    "title": "Complete Project",
+    "description": "Finished the console application with file storage",
+    "due_date": "2025-04-06",
+    "status": "Completed"
+  }
+]
