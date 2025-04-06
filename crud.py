@@ -50,12 +50,12 @@ class TaskManager:
     """            
     def __init__(self, filename="task.json",):
         self.filename = filename
-        # Initialize empty task list
+        """Initialize empty task list"""
         self.tasks = []  
         self.load_task()
         
     def load_task(self):
-        # Load tasks from JSON file
+        """ Load tasks from JSON file"""
         if os.path.exists(self.filename):
             if os.path.getsize(self.filename) > 0:
                 file = open(self.filename, 'r')
@@ -99,7 +99,7 @@ class TaskManager:
                 print("Invalid date format. Please use YYYY-MM-DD.")
                 due_date = ""
         
-        # Input validation
+        """Input validation"""
         status = ""
         while status not in ["1", "2", "3"]:
             print("\nTask Status Options:")
@@ -110,21 +110,21 @@ class TaskManager:
         
         status_map = {"1": "Not Started", "2": "In Progress", "3": "Completed"}   
                          
-        # Create and store new task
+        """Create and store new task"""
         new_task = Task(title, description, due_date, status_map[status])
         self.tasks.append(new_task)
         self.save_task()  
         print("\nTask created successfully.")   
         
     def read_tasks(self):
-        # Show all tasks
+        """Show all tasks"""
         print("\nTasks List:")
         print("=========")
         if not self.tasks:
             print("No tasks found.")
             return
         
-        # Display each task with index number of tasks
+        """Display each task with index number of tasks"""
         for i, task in enumerate(self.tasks, start=1):
             print(f"Task #{i}")
             print(task)
@@ -135,7 +135,7 @@ class TaskManager:
         if not self.tasks:
             return
         
-        # Get valid task selection
+        """Get valid task selection"""
         task_num = input("\nEnter task number to update:").strip()
         if not task_num.isdigit() or int(task_num) < 1 or int(task_num) > len(self.tasks):
             print("Invalid task number.")
@@ -145,7 +145,7 @@ class TaskManager:
         print("\nCurrent Task Details:")
         print(task)
         
-        # Get updated fields
+        """Get updated fields"""
         print("\nEnter new values (press Enter to keep current):") 
         title = input(f"Title [{task.title}]: ").strip()
         description = input(f"Description [{task.description}]: ").strip()
@@ -161,7 +161,7 @@ class TaskManager:
             else:
                     print("Invalid date format. Date not updated.")
                     
-        # Input validation
+        """Input validation"""
         while True:
             print("\nCurrent Status:", task.status)
             print("1. Not Started")
@@ -192,13 +192,13 @@ class TaskManager:
         if not self.tasks:
             return
         
-        # Get valid task selection
+        """Get valid task selection"""
         task_num = input("\nEnter task number to delete:").strip()
         if not task_num.isdigit() or int(task_num) < 1 or int(task_num) > len(self.tasks):
             print("Invalid task number.")
             return
         
-    # Confirm deletion
+        """Confirm deletion"""
         confirm = input(f"Are you sure you want to delete Task #{task_num}? (y/n): ").lower().strip()
         if confirm!= "y":
             del self.tasks[task_num - 1]
